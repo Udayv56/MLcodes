@@ -16,7 +16,7 @@ Deep learning is a specific implementation of machine learning, and artificial n
 
 In summary, machine learning is the broader field that encompasses various techniques for teaching machines to learn from data. Artificial neural networks are the fundamental building blocks of machine learning and provide the basis for deep learning. Deep learning, in turn, is a subset of machine learning that utilizes deep neural networks to learn hierarchical representations of data and achieve state-of-the-art performance in various AI tasks.
 
-#ML1.py
+# ML1.py
 
 Linear regression is a statistical method used to model the relationship between a dependent variable and one or more independent variables. It assumes a linear relationship between the independent variables and the dependent variable, and aims to find the best-fit line that minimizes the differences between the observed data points and the predicted values on the line.
 
