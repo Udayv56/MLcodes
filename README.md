@@ -108,3 +108,30 @@ The reason for using a 2D array is to maintain compatibility with scikit-learn's
 By passing df[['area']] as a 2D array, we ensure that the shape of the feature matrix is correct for scikit-learn's linear regression model. It treats each element in the 2D array as a separate sample and uses it to train the model.
 
 In summary, the use of a 2D array in reg.fit(df[['area']], df.price) is to conform to scikit-learn's requirements for the feature matrix, where each element represents a separate sample or observation.
+
+# ML2.py
+Certainly! Let's go through the code step by step and explain it without role-playing:
+
+1. Data preprocessing:
+   - The code begins by importing the required libraries: `pandas` for data manipulation, `matplotlib.pyplot` for plotting, `linear_model` from `sklearn` for linear regression, and `math` for mathematical operations.
+   - Next, the code reads a CSV file named "homeprice.csv" using `pd.read_csv()` and stores it in a DataFrame called `df`.
+   - The `print(df)` statement is used to display the contents of the DataFrame, giving us an overview of the dataset.
+
+2. Handling missing values:
+   - The line `median_bedroom = math.floor(df.bedroom.median())` calculates the median value of the 'bedroom' column using the `median()` function from `df.bedroom`. The `math.floor()` function is applied to round down the median value to the nearest whole number, and the result is stored in the variable `median_bedroom`.
+   - To handle missing values in the 'bedroom' column, the code uses the line `df.bedroom = df.bedroom.fillna(median_bedroom)`. It fills the missing values in the 'bedroom' column with the calculated median value, ensuring that the dataset doesn't contain any missing values.
+   - The updated DataFrame is printed using `print(df)` to verify that the missing values in the 'bedroom' column have been filled.
+
+3. Linear regression modeling:
+   - An instance of the `LinearRegression` class from scikit-learn is created using `reg = linear_model.LinearRegression()`.
+   - The `fit()` method is called on the regression model to train it. It takes two arguments: the independent variables and the dependent variable.
+   - In this case, the independent variables are specified as `df[['area', 'bedroom', 'age']]`, which selects the 'area', 'bedroom', and 'age' columns from the DataFrame `df`. The dependent variable is `df.price`, representing the property prices.
+   - The regression model learns from the provided data to establish the relationship between the independent variables and the dependent variable.
+
+4. Predicting property prices:
+   - The code uses the `predict()` method of the trained regression model to predict property prices based on given input data.
+   - Two predictions are made:
+     - `print(reg.predict([[3000, 3, 40]]))` predicts the price for a property with an area of 3000 square units, 3 bedrooms, and an age of 40 years.
+     - `print(reg.predict([[2000, 4, 5]]))` predicts the price for a property with an area of 2000 square units, 4 bedrooms, and an age of 5 years.
+
+That's a high-level explanation of the code, focusing on the data preprocessing steps, linear regression modeling, and the prediction process.
